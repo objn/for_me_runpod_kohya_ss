@@ -25,6 +25,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # Clone the repository
 git clone https://github.com/bmaltais/kohya_ss.git
 
+sudo apt install zip unzip
+
 # Install kohya_ss
 cd kohya_ss
 chmod +x setup-runpod.sh
