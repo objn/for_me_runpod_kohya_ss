@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Prepare work space
+sudo mkdir "base_model"
+sudo mkdir "dataset"
+
 # Update the package repository
 sudo apt update
 
@@ -22,10 +26,11 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 export PATH="$HOME/.local/bin:$PATH"
 
+# Install utility
+sudo apt install zip unzip
+
 # Clone the repository
 git clone https://github.com/bmaltais/kohya_ss.git
-
-sudo apt install zip unzip
 
 # Install kohya_ss
 cd kohya_ss
@@ -34,7 +39,8 @@ sudo ./setup-runpod.sh &
 wait
 echo "The setup-runpod.sh script has finished. Continue with the next steps."
 
-chmod +x gui.sh
-sudo gui.sh
+# Start kohya_ss gui
+cd kohya_ss
+sudo ./gui.sh
 # Exit the script
 exit 0
