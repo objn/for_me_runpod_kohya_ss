@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Prepare work space
-sudo mkdir "base_model"
+sudo mkdir "basemodel"
+chmod +rwx basemodel
 sudo mkdir "dataset"
+chmod +rwx dataset
 
 # Update the package repository
 sudo apt update
@@ -11,6 +13,9 @@ sudo apt update
 sudo apt install -y software-properties-common
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt update
+
+# Install utility
+sudo apt install p7zip-full
 
 # Install required packages
 sudo apt install -y python3.10 python3.10-tk python3.10-distutils python3.10-dev firefox git chromium-browser
@@ -25,9 +30,6 @@ curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 export PATH="$HOME/.local/bin:$PATH"
-
-# Install utility
-sudo apt install zip unzip
 
 # Clone the repository
 git clone https://github.com/bmaltais/kohya_ss.git
